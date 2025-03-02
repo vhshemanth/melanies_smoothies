@@ -32,7 +32,7 @@ if ingredients_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ingredients_choosen + """' , '""" + name_on_order + """')"""
 
-    submit = st.button("Sumbit Order")
+    submit = st.button("Submit Order")
     
     #st.write(my_insert_stmt)
     #st.stop()
