@@ -19,7 +19,6 @@ session = cnx.session()
 name_on_order = st.text_input("Name of Smoothie")
 st.write("The name of your smoothie is : ", name_on_order)
 
-session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 ingredients_list = st.multiselect('Chose upto 5 Ingredeints', my_dataframe, max_selections = 5)
