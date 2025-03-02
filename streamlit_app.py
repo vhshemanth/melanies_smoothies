@@ -1,6 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
+import requests
 
 helpful_links = [
     "https://docs.streamlit.io",
@@ -22,6 +23,10 @@ st.write("The name of your smoothie is : ", name_on_order)
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 ingredients_list = st.multiselect('Chose upto 5 Ingredeints', my_dataframe, max_selections = 5)
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
+
 if ingredients_list:
     #st.write(ingredients_list)
     #st.text(ingredients_list)
